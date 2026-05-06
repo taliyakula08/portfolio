@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Vishnu Portfolio</title>
+
+  <!-- GOOGLE FONT -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Inter',sans-serif;
+
+      background:
+      radial-gradient(circle at top left, rgba(99,102,241,0.15), transparent 25%),
+      radial-gradient(circle at bottom right, rgba(0,255,200,0.10), transparent 25%),
+      #0d0d0d;
+
+      color:white;
+      line-height:1.6;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      width:100%;
+      position:fixed;
+      top:0;
+      left:0;
+      backdrop-filter:blur(10px);
+      background:rgba(0,0,0,0.45);
+      border-bottom:1px solid rgba(255,255,255,0.05);
+      z-index:1000;
+    }
+
+    .nav-container{
+      max-width:1200px;
+      margin:auto;
+      padding:18px 24px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .logo{
+      font-size:24px;
+      font-weight:700;
+      letter-spacing:-1px;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:28px;
+    }
+
+    .nav-links a{
+      color:#c7c7c7;
+      font-size:15px;
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      color:#8b9fff;
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:120px 24px 80px;
+    }
+
+    .hero-content{
+      text-align:center;
+      max-width:850px;
+      animation:fadeIn 1s ease;
+    }
+
+    .hero h1{
+      font-size:72px;
+      line-height:1.1;
+      margin-bottom:20px;
+      letter-spacing:-3px;
+
+      background:linear-gradient(to right,#ffffff,#8b9fff);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .hero p{
+      font-size:20px;
+      color:#b5b5b5;
+      max-width:700px;
+      margin:auto;
+      margin-bottom:40px;
+    }
+
+    .buttons{
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:14px 28px;
+      border:none;
+      border-radius:12px;
+      cursor:pointer;
+      font-size:15px;
+      font-weight:600;
+      transition:0.3s ease;
+    }
+
+    .primary-btn{
+      background:linear-gradient(to right,#8b9fff,#6e7fff);
+      color:white;
+    }
+
+    .primary-btn:hover{
+      transform:translateY(-4px);
+      box-shadow:0 10px 25px rgba(99,102,241,0.35);
+    }
+
+    .secondary-btn{
+      background:#171717;
+      color:white;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .secondary-btn:hover{
+      background:#222;
+      transform:translateY(-4px);
+    }
+
+    /* SECTIONS */
+
+    section{
+      padding:100px 24px;
+    }
+
+    .container{
+      max-width:1100px;
+      margin:auto;
+    }
+
+    .section-title{
+      font-size:42px;
+      margin-bottom:16px;
+      font-weight:700;
+    }
+
+    .section-subtitle{
+      color:#b0b0b0;
+      max-width:650px;
+      margin-bottom:60px;
+    }
+
+    /* ABOUT */
+
+    .about-box{
+      background:rgba(20,20,20,0.85);
+      border-radius:24px;
+      padding:45px;
+      border:1px solid rgba(255,255,255,0.05);
+      transition:0.3s;
+      backdrop-filter:blur(10px);
+    }
+
+    .about-box:hover{
+      transform:translateY(-5px);
+    }
+
+    /* EDUCATION */
+
+    .education-section{
+      margin-top:40px;
+    }
+
+    .education-title{
+      font-size:28px;
+      margin-bottom:25px;
+    }
+
+    .edu-card{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:#1a1a1a;
+      border-radius:18px;
+      padding:22px;
+      margin-bottom:18px;
+      border:1px solid rgba(255,255,255,0.05);
+      transition:0.3s;
+    }
+
+    .edu-card:hover{
+      transform:translateY(-4px);
+      background:#202020;
+    }
+
+    .edu-left h4{
+      font-size:18px;
+      margin-bottom:6px;
+    }
+
+    .edu-left p{
+      color:#a8a8a8;
+      font-size:14px;
+    }
+
+    .edu-right span{
+      color:#bcbcbc;
+      font-size:14px;
+    }
+
+    /* SKILLS */
+
+    .skills-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+      gap:20px;
+    }
+
+    .skill-card{
+      background:rgba(20,20,20,0.9);
+      padding:24px;
+      border-radius:18px;
+      text-align:center;
+      border:1px solid rgba(255,255,255,0.05);
+      transition:0.3s;
+      font-weight:500;
+      backdrop-filter:blur(10px);
+    }
+
+    .skill-card:hover{
+      transform:translateY(-5px);
+      background:#1d1d1d;
+      border-color:#8b9fff;
+    }
+
+    /* PROJECTS */
+
+    .projects-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:28px;
+    }
+
+    .project-card{
+      background:rgba(20,20,20,0.9);
+      border-radius:24px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.05);
+      transition:0.4s;
+
+      box-shadow:
+      0 10px 30px rgba(0,0,0,0.25);
+    }
+
+    .project-card:hover{
+      transform:translateY(-8px);
+      border-color:#8b9fff;
+    }
+
+    .project-image{
+      height:200px;
+
+      background:
+      linear-gradient(
+      135deg,
+      rgba(99,102,241,0.35),
+      rgba(0,255,200,0.15)
+      );
+    }
+
+    .project-content{
+      padding:28px;
+    }
+
+    .project-content h3{
+      margin-bottom:14px;
+      font-size:24px;
+    }
+
+    .project-content p{
+      color:#b0b0b0;
+      margin-bottom:24px;
+    }
+
+    .project-links{
+      display:flex;
+      gap:20px;
+    }
+
+    .project-links a{
+      font-size:14px;
+      transition:0.3s;
+      color:#8b9fff;
+    }
+
+    .project-links a:hover{
+      opacity:0.7;
+    }
+
+    /* CONTACT */
+
+    .contact-box{
+      background:rgba(20,20,20,0.9);
+      padding:60px 30px;
+      border-radius:24px;
+      text-align:center;
+      border:1px solid rgba(255,255,255,0.05);
+      backdrop-filter:blur(10px);
+    }
+
+    .contact-box h2{
+      font-size:38px;
+      margin-bottom:18px;
+    }
+
+    .contact-box p{
+      color:#b0b0b0;
+      margin-bottom:35px;
+    }
+
+    /* FOOTER */
+
+    footer{
+      padding:30px;
+      text-align:center;
+      color:#7f7f7f;
+      font-size:14px;
+    }
+
+    /* ANIMATION */
+
+    @keyframes fadeIn{
+
+      from{
+        opacity:0;
+        transform:translateY(30px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+
+    }
+
+    /* MOBILE */
+
+    @media(max-width:768px){
+
+      .hero h1{
+        font-size:50px;
+      }
+
+      .hero p{
+        font-size:17px;
+      }
+
+      .nav-links{
+        gap:16px;
+      }
+
+      .section-title{
+        font-size:34px;
+      }
+
+      .edu-card{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+
+    <div class="nav-container">
+
+      <div class="logo">
+        Vishnu Vardhan Taliyakula
+      </div>
+
+      <div class="nav-links">
+
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <h1>
+        Building Modern <br>
+        Digital Experiences
+      </h1>
+
+      <p>
+        I'm Taliyakula Vishnu Vardhan, a Computer Science student passionate about
+        Web Development and Database Management.
+      </p>
+
+      <div class="buttons">
+
+        <a href="https://github.com/taliyakula08/taliyakula_writings/blob/main/Vishnu%20Resume-Good.pdf" download>
+          <button class="btn primary-btn">
+            View Resume
+          </button>
+        </a>
+
+        <a href="https://github.com/taliyakula08" target="_blank">
+          <button class="btn secondary-btn">
+            GitHub
+          </button>
+        </a>
+
+        <a href="https://www.linkedin.com/in/vishnu-vardhan-taliyakula-7b45b1343/" target="_blank">
+          <button class="btn secondary-btn">
+            LinkedIn
+          </button>
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        About Me
+      </h2>
+
+      <p class="section-subtitle">
+        Passionate developer focused on creating responsive,
+        user-friendly applications and continuously learning
+        modern technologies.
+      </p>
+
+      <div class="about-box">
+
+        <p style="margin-bottom:30px;">
+
+          I am a Computer Science student passionate about
+          web development, software engineering, UI/UX design,
+          and building impactful digital products. I enjoy creating
+          clean, scalable, and modern applications while continuously
+          improving my technical and problem-solving skills.
+
+        </p>
+
+        <!-- EDUCATION -->
+
+        <div class="education-section">
+
+          <h3 class="education-title">
+            Education
+          </h3>
+
+          <div class="edu-card">
+
+            <div class="edu-left">
+
+              <h4>
+                B.Tech - Computer Science Engineering
+              </h4>
+
+              <p>
+                Mohan Babu University <br>
+                Cgpa-9.0/10
+              </p>
+
+            </div>
+
+            <div class="edu-right">
+
+              <span>
+                2023 - 2027
+              </span>
+
+            </div>
+
+          </div>
+
+          <div class="edu-card">
+
+            <div class="edu-left">
+
+              <h4>
+                Intermediate
+              </h4>
+
+              <p>
+                Sri Prathibha Junior College <br>
+                95%
+              </p>
+
+            </div>
+
+            <div class="edu-right">
+
+              <span>
+                2021 - 2023
+              </span>
+
+            </div>
+
+          </div>
+
+          <div class="edu-card">
+
+            <div class="edu-left">
+
+              <h4>
+                10th Class
+              </h4>
+
+              <p>
+                Sri Gurudatta High School
+                
+              </p>
+
+            </div>
+
+            <div class="edu-right">
+
+              <span>
+                2020
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SKILLS -->
+
+  <section id="skills">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        Skills
+      </h2>
+
+      <p class="section-subtitle">
+        Technologies and tools I use to build projects.
+      </p>
+
+      <div class="skills-grid">
+
+        <div class="skill-card">JAVA</div>
+        <div class="skill-card">SQL</div>
+        <div class="skill-card">GitHub</div>
+        <div class="skill-card">PowerBI</div>
+        <div class="skill-card">Excel</div>
+        <div class="skill-card">Word</div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PROJECTS -->
+
+  <section id="projects">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        Projects
+      </h2>
+
+      <p class="section-subtitle">
+        A selection of projects showcasing my skills and interests.
+      </p>
+
+      <div class="projects-grid">
+
+        <!-- PROJECT 1 -->
+
+        <div class="project-card">
+
+          <div class="project-image"></div>
+
+          <div class="project-content">
+
+            <h3>
+              Portfolio Website
+            </h3>
+
+            <p>
+              Modern responsive portfolio website built using
+              HTML, CSS and JavaScript.
+            </p>
+
+            <div class="project-links">
+
+              <a href="#">
+                Live Demo
+              </a>
+
+              <a href="https://github.com/taliyakula08">
+                GitHub
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- PROJECT 2 -->
+
+        <div class="project-card">
+
+          <div class="project-image"></div>
+
+          <div class="project-content">
+
+            <h3>
+              Blood Wave Project
+            </h3>
+
+            <p>
+              Modern responsive Blood Donation Platform.
+            </p>
+
+            <div class="project-links">
+
+              <a href="#">
+                Live Demo
+              </a>
+
+              <a href="https://github.com/taliyakula08">
+                GitHub
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+
+    <div class="container">
+
+      <div class="contact-box">
+
+        <h2>
+          Let's Connect
+        </h2>
+
+        <p>
+          Open to internships, collaborations, and opportunities. <br>
+          taliyakula123v@gmail.com
+        </p>
+
+        <a href="mailto:taliyakula123v@gmail.com">
+
+          <button class="btn primary-btn">
+            Contact Me 
+          </button>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    © 2026 Vishnu Vardhan Taliyakula. All rights reserved.
+  </footer>
+
+</body>
+
+</html>
